@@ -20,7 +20,7 @@ public class ListBooks extends AppCompatActivity {
     List<Book> data;
     View v;
     ListView listView;
-    Adapter pAdapter;
+    AdapterBook pAdapter;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -35,7 +35,7 @@ public class ListBooks extends AppCompatActivity {
     {
         data = new ArrayList<Book>();
         listView = findViewById(R.id.BD_Books);
-        pAdapter = new Adapter(ListBooks.this, data);
+        pAdapter = new AdapterBook(ListBooks.this, data);
         try
         {
             ConnectionHelper connectionHelper = new ConnectionHelper();
