@@ -8,27 +8,19 @@ public class Book implements Parcelable{
     private String TitleBook;
     private String Annitation;
     private String Summary;
-    private int IdLink;
-    private String Link;
-    private int IdGenreBook;
-    private int IdGenre;
-    private String TitleGenre;
-    private int IdAuthor;
-    private String Author;
     private String Image;
+    private String Author;
+    private String Genre;
+    private String Link;
 
     protected Book(Parcel in)
     {
         IdBook = in.readInt();
-        IdLink = in.readInt();
-        IdGenreBook = in.readInt();
-        IdGenre = in.readInt();
-        IdAuthor = in.readInt();
         TitleBook = in.readString();
         Annitation = in.readString();
         Summary = in.readString();
         Link = in.readString();
-        TitleGenre = in.readString();
+        Genre = in.readString();
         Author = in.readString();
         Image = in.readString();
     }
@@ -40,71 +32,30 @@ public class Book implements Parcelable{
         public Book[] newArray(int i) {return new Book[i];}
     };
 
+    public Book(int idBook, String titleBook, String annitation, String summary, String image, String author, String genre, String link) {
+        IdBook = idBook;
+        TitleBook =titleBook;
+        Annitation = annitation;
+        Summary = summary;
+        Image = image;
+        Author = author;
+        Genre = genre;
+        Link = link;
+    }
+
     @Override
     public int describeContents() {return 0;}
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(IdBook);
-        parcel.writeInt(IdLink);
-        parcel.writeInt(IdGenreBook);
-        parcel.writeInt(IdGenre);
-        parcel.writeInt(IdAuthor);
         parcel.writeString(TitleBook);
         parcel.writeString(Annitation);
         parcel.writeString(Summary);
         parcel.writeString(Link);
-        parcel.writeString(TitleGenre);
+        parcel.writeString(Genre);
         parcel.writeString(Author);
         parcel.writeString(Image);
-    }
-
-    public void setIdBook(int idBook) {
-        IdBook = idBook;
-    }
-
-    public void setTitleBook(String titleBook) {
-        TitleBook = titleBook;
-    }
-
-    public void setAnnitation(String annitation) {
-        Annitation = annitation;
-    }
-
-    public void setSummary(String summary) {
-        Summary = summary;
-    }
-
-    public void setIdLink(int idLink) {
-        IdLink = idLink;
-    }
-
-    public void setLink(String link) {
-        Link = link;
-    }
-
-    public void setIdGenreBook(int idGenreBook) {
-        IdGenreBook = idGenreBook;
-    }
-
-    public void setIdGenre(int idGenre) {
-        IdGenre = idGenre;
-    }
-
-    public void setTitleGenre(String titleGenre) {
-        TitleGenre = titleGenre;
-    }
-
-    public void setIdAuthor(int idAuthor) {
-        IdAuthor = idAuthor;
-    }
-
-    public void setAuthor(String author) {
-        Author = author;
-    }
-
-    public void setImage(String image) {
-        Image = image;
     }
 
     public int getIdBook() {
@@ -123,35 +74,51 @@ public class Book implements Parcelable{
         return Summary;
     }
 
-    public int getIdLink() {
-        return IdLink;
-    }
-
-    public String getLink() {
-        return Link;
-    }
-
-    public int getIdGenreBook() {
-        return IdGenreBook;
-    }
-
-    public int getIdGenre() {
-        return IdGenre;
-    }
-
-    public String getTitleGenre() {
-        return TitleGenre;
-    }
-
-    public int getIdAuthor() {
-        return IdAuthor;
+    public String getImage() {
+        return Image;
     }
 
     public String getAuthor() {
         return Author;
     }
 
-    public String getImage() {
-        return Image;
+    public String getGenre() {
+        return Genre;
+    }
+
+    public String getLink() {
+        return Link;
+    }
+
+    public void setIdBook(int idBook) {
+        IdBook = idBook;
+    }
+
+    public void setTitleBook(String titleBook) {
+        TitleBook = titleBook;
+    }
+
+    public void setAnnitation(String annitation) {
+        Annitation = annitation;
+    }
+
+    public void setSummary(String summary) {
+        Summary = summary;
+    }
+
+    public void setImage(String image) {
+        Image = image;
+    }
+
+    public void setAuthor(String author) {
+        Author = author;
+    }
+
+    public void setGenre(String genre) {
+        Genre = genre;
+    }
+
+    public void setLink(String link) {
+        Link = link;
     }
 }

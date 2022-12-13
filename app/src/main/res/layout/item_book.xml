@@ -24,7 +24,7 @@
         />
 
     <TextView
-        android:id="@+id/TitleBook"
+        android:id="@+id/tv_TitleBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/Img"
@@ -34,7 +34,7 @@
 
 
     <TextView
-        android:id="@+id/Author"
+        android:id="@+id/tv_Author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/Img"
@@ -43,7 +43,7 @@
         android:layout_marginTop="35dp"/>
 
     <TextView
-        android:id="@+id/GenresBook"
+        android:id="@+id/tv_GenresBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/Img"

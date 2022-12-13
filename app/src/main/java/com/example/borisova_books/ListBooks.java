@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,15 +42,32 @@ public class ListBooks extends AppCompatActivity {
             connection = connectionHelper.connectionClass();
             if(connection!=null)
             {
-                String query = "Select * From Products";
+                String query = "Select * From Books";
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(query);
+                while(resultSet.next())
+                {
+                    Book book = new Book(
+                            resultSet.getInt("IdBook"),
+                            resultSet.getString("TitleBook"),
+                            resultSet.getString("Annitation"),
+                            resultSet.getString("Summary"),
+                            resultSet.getString("Image"),
+                            resultSet.getString("Author"),
+                            resultSet.getString("Genre"),
+                            resultSet.getString("Link")
+                    );
+                    data.add(book);
+                    pAdapter.notifyDataSetInvalidated();
+                }
+                connection.close();
             }
         }
-        catch ()
-        {
-
+        catch (SQLException e) {
+            e.printStackTrace();
         }
+        pAdapter.notifyDataSetInvalidated();
+        listView.setAdapter(pAdapter);
     }
 
 }
